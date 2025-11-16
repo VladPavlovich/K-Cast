@@ -1,0 +1,9 @@
+torch
+transformers
+huggingface-hub
+accelerate
+sentencepiece
+protobuf
+scikit-learn
+numpy
+tqdm
