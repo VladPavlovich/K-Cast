@@ -7,8 +7,12 @@ def load_json_dataset(path):
     for item in data:
         syll = item["syllogism"]
 
-        prompt = f"Syllogism:\n{syll}\n\nLabel:"
-
+        # CLEAN consistent minimal prompt
+        prompt = (
+            f"Syllogism:\n{syll}\n\n"
+            "Answer with exactly one word: valid or invalid.\n"
+            "Label:"
+        )
 
         processed.append({
             "text": prompt,

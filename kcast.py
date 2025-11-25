@@ -1,50 +1,63 @@
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
-
 
 class KCASTDatastore:
     """
-    Stores activation vectors and labels for kNN-based α computation.
-    Paper: K-CAST computes α per example from kNN in activation space.
-    Our version: we store for compatibility, but α is fixed unless extended.
+    Stores (phi(x), label) pairs and performs kNN queries.
+    Labels are: valid → +1, invalid → -1
     """
 
     def __init__(self):
-        self.vecs = []      # activation vectors
-        self.labels = []    # "valid" / "invalid"
+        self.phis = []
+        self.labels = []
 
-    def add(self, vec, label):
-        self.vecs.append(vec.cpu())
-        self.labels.append(1 if label == "valid" else 0)
+    def add(self, phi, label):
+        self.phis.append(phi)
+        self.labels.append(1 if label == "valid" else -1)
 
-    def __len__(self):
-        return len(self.vecs)
+    def finalize(self):
+        self.phis = torch.stack(self.phis)          # [N, d]
+        self.labels = torch.tensor(self.labels)     # [N]
+
+    def query_knn(self, phi_x, k=32):
+        """
+        Returns majority-vote label (+1 or -1)
+        """
+        dists = torch.norm(self.phis - phi_x, dim=1)
+        idx = torch.topk(-dists, k).indices        # nearest = largest similarity
+
+        neighbor_labels = self.labels[idx]
+        return 1 if neighbor_labels.sum() >= 0 else -1
 
 
-class KCASTSteerer(nn.Module):
+class KCASTSteerer:
     """
-    The forward hook injected into a transformer block.
-
-    It modifies the hidden state h:
-        h' = h + α * δ
-    where δ is the steering vector.
+    Implements:
+      φ̃(x) = φ(x) - ŷ(x) * α * Δφ_c
+    where ŷ(x) is obtained via kNN majority vote.
     """
 
-    def __init__(self, delta, datastore, alpha=1.0):
-        super().__init__()
-        self.delta = delta.to(dtype=torch.float32)
+    def __init__(self, delta_base, datastore, alpha=1.0, k=32):
+        self.delta_base = delta_base
+        self.datastore = datastore
         self.alpha = alpha
-        self.datastore = datastore  # not used yet, but needed for method 2
+        self.k = k
 
     def __call__(self, module, inputs, output):
-        out = output
+        """
+        Apply steering to *last token* activation.
+        Output is hidden states: [batch, seq, dim]
+        """
+        hidden = output
+        last_vec = hidden[:, -1, :].detach().cpu().squeeze()
 
-        # ensure delta is on same device (important!)
-        if self.delta.device != out.device:
-            self.delta = self.delta.to(out.device)
+        # 1) Predict label via kNN
+        y_hat = self.datastore.query_knn(last_vec, k=self.k)   # +1 or -1
 
-        # Apply steering to the LAST token hidden state
-        out[:, -1, :] = out[:, -1, :] + self.alpha * self.delta
+        # 2) Steering direction
+        delta = self.delta_base.to(hidden.device)
 
-        return out
+        # 3) Apply update
+        new_hidden = hidden.clone()
+        new_hidden[:, -1, :] = hidden[:, -1, :] - y_hat * self.alpha * delta
+
+        return new_hidden
