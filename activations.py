@@ -3,11 +3,13 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 
 
 class ActivationExtractor:
-    def __init__(self, model_name, layer_idx=-4):
+    def __init__(self, model_name, layer_idx=-7):
         """
         Loads HF model + tokenizer and registers a forward hook
         to capture hidden activations at the selected layer.
         """
+        print(f"Loading model {model_name}...")
+        print("number of layers:", layer_idx)
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
 
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)

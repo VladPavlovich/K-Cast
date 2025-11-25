@@ -36,6 +36,7 @@ class KCASTDatastore:
 # This applies: phi' = phi + sign * alpha * delta
 # --------------------------------------------------------------------
 
+# rand. uniform form (-3,3) for alpa
 class KCASTSteerer:
     def __init__(self, delta, datastore, alpha=1.0):
         self.delta = delta
