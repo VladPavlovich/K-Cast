@@ -2,40 +2,37 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 class ActivationExtractor:
-    """
-    Loads model and returns φ(x) from chosen layer index.
-    """
-
-    def __init__(self, model_name, layer_idx=-5):
+    def __init__(self, model_name, layer_idx, device="cuda"):
         print(f"Loading model: {model_name}")
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.device = device
+        self.layer_idx = layer_idx
+        
+        # padding_side="left" is critical for extracting the last token correctly
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name, padding_side="left")
+        if self.tokenizer.pad_token is None:
+            self.tokenizer.pad_token = self.tokenizer.eos_token
 
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-
+        # Load model
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name,
-            output_hidden_states=True,
-            torch_dtype=torch.float16 if self.device == "cuda" else torch.float32
-        ).to(self.device)
+            dtype=torch.float16 if device == "cuda" else torch.float32,
+            device_map=device
+        )
 
-        self.layer_idx = layer_idx
-        self.captured = {}
-
-        # Register hook to capture last token hidden state
-        layer = self.model.model.layers[self.layer_idx]
-        layer.register_forward_hook(self._hook)
-
-    def _hook(self, module, inputs, output):
-        self.captured["acts"] = output.detach()
-
-    def phi(self, text):
+    def get_phi(self, text):
         """
-        Returns activation for last token: φ(x) ∈ R^d
+        Runs forward pass and extracts activation from the specific layer
+        at the last token position.
         """
         inputs = self.tokenizer(text, return_tensors="pt").to(self.device)
-
+        
         with torch.no_grad():
-            _ = self.model(**inputs)
-
-        acts = self.captured["acts"][:, -1, :]  # last token
-        return acts.squeeze().cpu()
+            # Force output_hidden_states=True here to ignore config warnings
+            out = self.model(**inputs, output_hidden_states=True)
+        
+        # out.hidden_states is a tuple of (layer_0, layer_1, ... layer_N)
+        layer_acts = out.hidden_states[self.layer_idx]
+        
+        # Grab last token: [Batch, Seq, Dim] -> [Dim]
+        # We detach it to save memory since we only need the vector
+        return layer_acts[0, -1, :].detach()

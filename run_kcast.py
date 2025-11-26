@@ -1,102 +1,115 @@
 import torch
+import random
+import json
+from sklearn.metrics import accuracy_score
+
+# Import our modules
+from dataset_utils import parse_uuid_dataset
 from activations import ActivationExtractor
-from dataset_json import load_json_dataset
 from kcast import KCASTDatastore, KCASTSteerer
-from evaluation import evaluate_model
 
+# ================= Configuration =================
+MODEL_NAME = "meta-llama/Llama-3.2-3B" # Check if "Instruct" version is better for your prompt
+LAYER_IDX = -7
+K_NEIGHBORS = 32
+TRAIN_FILE = "train_parsed.json" # Your UUID JSON file
+VAL_FILE = "val_parsed.json"     # Your UUID JSON file
+# =================================================
 
-# ==========================================================
-# Load model
-# ==========================================================
+def main():
+    # 1. Load Model (ONCE)
+    extractor = ActivationExtractor(MODEL_NAME, layer_idx=LAYER_IDX)
+    
+    # 2. Parse Data
+    print("Parsing datasets...")
+    train_data = parse_uuid_dataset(TRAIN_FILE)
+    val_data = parse_uuid_dataset(VAL_FILE)
+    
+    # 3. Build Datastore & Compute Delta
+    # We do this in one pass to avoid running the model twice
+    print("Extracting activations and building datastore...")
+    datastore = KCASTDatastore(device=extractor.device)
+    
+    # We store valid/invalid vectors separately for Delta calculation
+    valid_vecs = []
+    invalid_vecs = []
 
-MODEL = "meta-llama/Llama-3.2-3B"
-LAYER = -5
-ALPHA = 2.0
-K = 16
+    for i, item in enumerate(train_data):
+        # Run forward pass
+        phi = extractor.get_phi(item["text"])
+        
+        # Add to datastore
+        datastore.add(phi, item["label"])
+        
+        # Sort for Delta calculation
+        if item["label"] == "valid":
+            valid_vecs.append(phi)
+        else:
+            invalid_vecs.append(phi)
+            
+        if i % 100 == 0: print(f"  Processed {i}/{len(train_data)}")
 
-print(f"Using model: {MODEL}, layer: {LAYER}")
-print(f"Steering alpha: {ALPHA}, k: {K}")
+    datastore.finalize()
+    
+    # 4. Compute Steering Vector (Delta)
+    print("Computing Delta (Mean Valid - Mean Invalid)...")
+    mu_valid = torch.stack(valid_vecs).mean(dim=0)
+    mu_invalid = torch.stack(invalid_vecs).mean(dim=0)
+    delta_c = mu_valid - mu_invalid
+    
+    # 5. Steering Evaluation Loop
+    #alpha_list = [random.uniform(-3.0, 3.0) for _ in range(5)] # Reduced range for testing
+    alpha_list = [0.0]
+    results_log = {}
 
+    print(f"\nStarting Sweep over Alphas: {alpha_list}")
+    
+    # We need to access the internal pytorch layer to register the hook
+    target_layer = extractor.model.model.layers[LAYER_IDX]
 
-extractor = ActivationExtractor(MODEL, layer_idx=LAYER)
+    for alpha in alpha_list:
+        print(f"\n--- Testing Alpha: {alpha:.4f} ---")
+        
+        # Register the Steering Hook
+        steerer = KCASTSteerer(delta_c, datastore, alpha=alpha, k=K_NEIGHBORS)
+        hook_handle = target_layer.register_forward_hook(steerer)
+        
+        # Evaluate on Validation Set
+        preds = []
+        golds = []
+        
+        # Simple valid/invalid token check
+        valid_token_id = extractor.tokenizer.encode("valid", add_special_tokens=False)[0]
+        invalid_token_id = extractor.tokenizer.encode("invalid", add_special_tokens=False)[0]
 
-train_data = load_json_dataset("train.json")
-val_data = load_json_dataset("val.json")
-test_data = load_json_dataset("test.json")
+        for item in val_data:
+            inputs = extractor.tokenizer(item["text"], return_tensors="pt").to(extractor.device)
+            
+            with torch.no_grad():
+                out = extractor.model(**inputs)
+            
+            # Simple Logit check for "valid" vs "invalid"
+            logits = out.logits[0, -1, :]
+            score_valid = logits[valid_token_id].item()
+            score_invalid = logits[invalid_token_id].item()
+            
+            prediction = "valid" if score_valid > score_invalid else "invalid"
+            
+            preds.append(prediction)
+            golds.append(item["label"])
 
+        # Calculate Accuracy
+        acc = accuracy_score(golds, preds)
+        print(f"Accuracy: {acc:.4f}")
+        results_log[str(alpha)] = acc
+        
+        # CRITICAL: Remove hook before next alpha!
+        hook_handle.remove()
 
-# ==========================================================
-# Build datastore
-# ==========================================================
+    # Save results
+    with open("results_kcast.json", "w") as f:
+        json.dump(results_log, f, indent=4)
+    print("\nDone. Results saved to results_kcast.json")
 
-datastore = KCASTDatastore()
-print("Extracting training activations...")
-
-for item in train_data:
-    phi = extractor.phi(item["text"])
-    datastore.add(phi, item["label"])
-
-datastore.finalize()
-print(f"Datastore finalized: {len(datastore.phis)} entries.")
-
-
-# ==========================================================
-# Compute Δφ_c = μ_valid - μ_invalid
-# ==========================================================
-
-print("Computing Δφ_c...")
-
-valid_phis = [extractor.phi(d["text"]) for d in train_data if d["label"] == "valid"]
-invalid_phis = [extractor.phi(d["text"]) for d in train_data if d["label"] == "invalid"]
-
-mu_valid = torch.stack(valid_phis).mean(0)
-mu_invalid = torch.stack(invalid_phis).mean(0)
-
-delta_c = (mu_valid - mu_invalid)
-torch.save(delta_c, "delta_vector.pt")
-print("Saved Δφ_c → delta_vector.pt")
-
-
-# ==========================================================
-# K-CAST inference (logit-based classifier)
-# ==========================================================
-
-def run_kcast(prompt, alpha=ALPHA, k=K):
-    layer = extractor.model.model.layers[extractor.layer_idx]
-
-    # register steering hook
-    hook = layer.register_forward_hook(
-        KCASTSteerer(delta_base=delta_c, datastore=datastore, alpha=alpha, k=k)
-    )
-
-    inputs = extractor.tokenizer(prompt, return_tensors="pt").to(extractor.device)
-
-    with torch.no_grad():
-        out = extractor.model(**inputs)
-
-    hook.remove()
-
-    logits = out.logits[:, -1, :]
-    probs = torch.softmax(logits, dim=-1)
-
-    tok = extractor.tokenizer
-    valid_id = tok.encode("valid", add_special_tokens=False)[0]
-    invalid_id = tok.encode("invalid", add_special_tokens=False)[0]
-
-    p_valid = probs[0, valid_id].item()
-    p_invalid = probs[0, invalid_id].item()
-
-    return "valid" if p_valid >= p_invalid else "invalid"
-
-
-# ==========================================================
-# Evaluate
-# ==========================================================
-
-print("\nEvaluating on validation set...")
-val_results = evaluate_model(val_data, run_kcast)
-print(val_results)
-
-print("\nEvaluating on TEST set...")
-test_results = evaluate_model(test_data, run_kcast)
-print(test_results)
+if __name__ == "__main__":
+    main()
