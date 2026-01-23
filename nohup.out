@@ -1,0 +1,87 @@
+
+
+=== Running Experiment for Model: Llama_3.1_8B, Layer: [-10, -8, -6] ===
+Loading model: /home/nlp-shared/akash_models/Llama3.1_8B
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:01<00:07,  1.23s/it]Loading checkpoint shards:  29%|██▊       | 2/7 [00:02<00:06,  1.21s/it]Loading checkpoint shards:  43%|████▎     | 3/7 [00:03<00:04,  1.25s/it]Loading checkpoint shards:  57%|█████▋    | 4/7 [00:04<00:03,  1.25s/it]Loading checkpoint shards:  71%|███████▏  | 5/7 [00:06<00:02,  1.24s/it]Loading checkpoint shards:  86%|████████▌ | 6/7 [00:07<00:01,  1.26s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:08<00:00,  1.04s/it]Loading checkpoint shards: 100%|██████████| 7/7 [00:08<00:00,  1.16s/it]
+Parsing datasets...
+Loaded 672 examples from train_parsed.json
+  > Valid: 339, Invalid: 333
+Loaded 144 examples from val_parsed.json
+  > Valid: 70, Invalid: 74
+Loaded 144 examples from test_parsed.json
+  > Valid: 71, Invalid: 73
+Extracting activations and building datastore...
+  Processed 0/672
+  Processed 100/672
+  Processed 200/672
+  Processed 300/672
+  Processed 400/672
+  Processed 500/672
+  Processed 600/672
+Computing Delta (Mean Valid - Mean Invalid)...
+
+Starting Sweep over Alphas: [1.4262588647623318, -0.25211902805632214, -0.1017251997674582]
+
+--- Testing Alpha: 1.4263 ---
+Accuracy: 0.4931
+New max accuracy for Llama_3.1_8B: 0.4931 at layer -10 with alpha 1.4263
+
+--- Testing Alpha: -0.2521 ---
+Accuracy: 0.6319
+New max accuracy for Llama_3.1_8B: 0.6319 at layer -10 with alpha -0.2521
+
+--- Testing Alpha: -0.1017 ---
+Accuracy: 0.6319
+Loading model: /home/nlp-shared/akash_models/Llama3.1_8B
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards:  14%|█▍        | 1/7 [00:01<00:06,  1.05s/it]Loading checkpoint shards:  14%|█▍        | 1/7 [00:01<00:07,  1.30s/it]
+Traceback (most recent call last):
+  File "/home/vpavlovi/K-Cast/run_kcast_semeval_work.py", line 178, in <module>
+    main(MODEL_NAME=MODEL_NAME, LAYER_IDX=LAYER_IDX, K_NEIGHBORS=K_NEIGHBORS)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vpavlovi/K-Cast/run_kcast_semeval_work.py", line 65, in main
+    extractor = ActivationExtractor(MODEL_NAME, layer_idx=lay_idx)
+  File "/home/vpavlovi/K-Cast/activations.py", line 16, in __init__
+    self.model = AutoModelForCausalLM.from_pretrained(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        model_name,
+        ^^^^^^^^^^^
+        dtype=torch.float16 if device == "cuda" else torch.float32,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        device_map=device
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/vpavlovi/miniconda3/envs/Kcast/lib/python3.14/site-packages/transformers/models/auto/auto_factory.py", line 604, in from_pretrained
+    return model_class.from_pretrained(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        pretrained_model_name_or_path, *model_args, config=config, **hub_kwargs, **kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/vpavlovi/miniconda3/envs/Kcast/lib/python3.14/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
+    return func(*args, **kwargs)
+  File "/home/vpavlovi/miniconda3/envs/Kcast/lib/python3.14/site-packages/transformers/modeling_utils.py", line 5048, in from_pretrained
+    ) = cls._load_pretrained_model(
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        model,
+        ^^^^^^
+    ...<12 lines>...
+        weights_only=weights_only,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/vpavlovi/miniconda3/envs/Kcast/lib/python3.14/site-packages/transformers/modeling_utils.py", line 5468, in _load_pretrained_model
+    _error_msgs, disk_offload_index = load_shard_file(args)
+                                      ~~~~~~~~~~~~~~~^^^^^^
+  File "/home/vpavlovi/miniconda3/envs/Kcast/lib/python3.14/site-packages/transformers/modeling_utils.py", line 843, in load_shard_file
+    disk_offload_index = _load_state_dict_into_meta_model(
+        model,
+    ...<8 lines>...
+        device_mesh=device_mesh,
+    )
+  File "/home/vpavlovi/miniconda3/envs/Kcast/lib/python3.14/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/vpavlovi/miniconda3/envs/Kcast/lib/python3.14/site-packages/transformers/modeling_utils.py", line 770, in _load_state_dict_into_meta_model
+    _load_parameter_into_model(model, param_name, param.to(param_device))
+                                                  ~~~~~~~~^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 23.59 GiB of which 7.12 MiB is free. Process 434367 has 254.00 MiB memory in use. Process 1890498 has 3.36 GiB memory in use. Process 1990075 has 1.35 GiB memory in use. Including non-PyTorch memory, this process has 18.60 GiB memory in use. Of the allocated memory 18.22 GiB is allocated by PyTorch, and 72.41 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

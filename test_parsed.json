@@ -1,0 +1,866 @@
+{
+    "5029f069-0076-49ad-b65e-b592fed18083": {
+        "Premise A": "There are no dogs that are reptiles",
+        "Premise B": " Everything that is a fish is a dog",
+        "Conclusion": " Thus, every fish is a reptile",
+        "Validity": false
+    },
+    "a0d82c8d-78c5-436b-9365-c243ace27faf": {
+        "Premise A": "Everything that is a star is cold",
+        "Premise B": " A few stars are suns",
+        "Conclusion": " It is the case that some suns are cold",
+        "Validity": true
+    },
+    "c9085b40-41d0-45a8-bdcf-306b0fb9ed9a": {
+        "Premise A": "It is the case that all trees are plants",
+        "Premise B": " Anything that is an oak is also a plant",
+        "Conclusion": " Some oaks fail to be trees",
+        "Validity": false
+    },
+    "9f443de1-8727-4b33-9dcc-20936c3cdb7e": {
+        "Premise A": "It is not true that any ocean is a continent",
+        "Premise B": " Every single thing that is an ocean named Pacific is an ocean",
+        "Conclusion": " This means some oceans named Pacific are not continents",
+        "Validity": true
+    },
+    "e6449020-f9d5-4bc0-b0a2-561fa0d15d30": {
+        "Premise A": "The group of professionals is a subset of the group of people",
+        "Premise B": " Everything that is a doctor is a professional",
+        "Conclusion": " Therefore, there are some people who are not doctors",
+        "Validity": false
+    },
+    "830b0cc9-935e-45ba-ab5c-1deb894fa119": {
+        "Premise A": "It is a fact that all mammals are animals",
+        "Premise B": " There are some animals which are cats",
+        "Conclusion": " Therefore, every single cat is an animal",
+        "Validity": false
+    },
+    "35c45723-f9be-40f0-b525-0dd530196630": {
+        "Premise A": "Every single animal is a living thing",
+        "Premise B": " Everything that is a human is also a living thing",
+        "Conclusion": " Consequently, every human is an animal",
+        "Validity": false
+    },
+    "8ef93cb4-e88e-47aa-86a0-2ed732f20a99": {
+        "Premise A": "Every single dog is a mammal",
+        "Premise B": " A portion of mammals can be classified as creatures that bark",
+        "Conclusion": " Some creatures that can bark are not dogs",
+        "Validity": false
+    },
+    "c05e6536-84d3-44c5-a5f3-32d838d2134c": {
+        "Premise A": "There are some elephants which are mammals",
+        "Premise B": " There are some fish which are mammals",
+        "Conclusion": " This leads to the conclusion that some fish are elephants",
+        "Validity": false
+    },
+    "45fcf3e0-d667-4856-8268-4df37fd3a8bb": {
+        "Premise A": "There are some animals that are birds",
+        "Premise B": " It is a fact that some animals are not fish",
+        "Conclusion": " It must be the case that no fish is a bird",
+        "Validity": false
+    },
+    "f879bc6e-b6df-4283-9c10-51fac98c9f1e": {
+        "Premise A": "Anything that is a car is an object that moves",
+        "Premise B": " Some vehicles are cars",
+        "Conclusion": " Therefore, every single vehicle is an object that moves",
+        "Validity": false
+    },
+    "57178844-d267-4d84-90ea-d2a29f973cda": {
+        "Premise A": "No star is a meteor",
+        "Premise B": " Meteors are, without exception, planets",
+        "Conclusion": " A number of planets are stars",
+        "Validity": false
+    },
+    "664267a1-59e1-481f-a04a-191ed6ed7a83": {
+        "Premise A": "No fish are creatures with fur",
+        "Premise B": " All of the animals that are considered mammals are creatures with fur",
+        "Conclusion": " Consequently, it can be said that some mammals are not fish",
+        "Validity": true
+    },
+    "8da50b76-04db-4f6c-b820-de5f57498334": {
+        "Premise A": "It is the case that all actors are performers",
+        "Premise B": " There are some men who are actors",
+        "Conclusion": " Therefore, we can derive that some men are performers",
+        "Validity": true
+    },
+    "b3a91f20-41e0-45b3-a152-92f28e8999c1": {
+        "Premise A": "It is not true that any insect is a creature with eight legs",
+        "Premise B": " Every insect is a spider",
+        "Conclusion": " It follows that every spider is a creature with eight legs",
+        "Validity": false
+    },
+    "7c5ab39b-14be-4b8f-aea0-58f360ec1c58": {
+        "Premise A": "It is the case that no bird is a fish",
+        "Premise B": " It is also not the case that any fish is a mammal",
+        "Conclusion": " It follows from this that no mammals are birds",
+        "Validity": false
+    },
+    "2351a576-f65f-4566-b885-6dfc14525c09": {
+        "Premise A": "There are no reptiles that are humans",
+        "Premise B": " It is also true that no ant is a reptile",
+        "Conclusion": " It follows that no ant is a human",
+        "Validity": false
+    },
+    "dfd5eb0f-1457-4e71-b1d9-60dd75ce5ebb": {
+        "Premise A": "It is true that every single vehicle is a cloud",
+        "Premise B": " No clouds are cars",
+        "Conclusion": " Based on this information, it is logically necessary that some cars are not vehicles",
+        "Validity": true
+    },
+    "041da415-c737-4996-a959-f1f65fe391db": {
+        "Premise A": "Every single cat is an animal",
+        "Premise B": " Everything that is a dog is an animal",
+        "Conclusion": " There is at least one dog that is a cat",
+        "Validity": false
+    },
+    "d8954215-16e1-4b1a-ab2f-bb98b633712d": {
+        "Premise A": "There are some ideas that are made of cheese",
+        "Premise B": " Every single idea is an emotion",
+        "Conclusion": " Consequently, some emotions are made of cheese",
+        "Validity": true
+    },
+    "b5a2d8f8-8dc8-4f55-9da3-7b964f045574": {
+        "Premise A": "No individual who is a physicist is an English teacher",
+        "Premise B": " There are some people who are teachers and are also English teachers",
+        "Conclusion": " Thus, some individuals who are teachers are not physicists",
+        "Validity": true
+    },
+    "906d3863-253f-4a03-9396-aa6ac915b954": {
+        "Premise A": "There is not a single engineer who is a medical practitioner",
+        "Premise B": " Every single person who is a doctor is also a medical practitioner",
+        "Conclusion": " Doctors and engineers are mutually exclusive occupations",
+        "Validity": true
+    },
+    "f2b6985a-8b9d-47a2-8707-5e50b8348639": {
+        "Premise A": "There is not a single tree that is a shrub",
+        "Premise B": " It is known that some oaks are trees",
+        "Conclusion": " Consequently, some oaks are not shrubs",
+        "Validity": true
+    },
+    "31e903dc-43a9-4fb6-8841-5a724bdf53ca": {
+        "Premise A": "Every single animal is a living thing",
+        "Premise B": " Anything that is a bird is an animal",
+        "Conclusion": " All birds are living things",
+        "Validity": false
+    },
+    "0392a395-81cd-404c-bb1e-e16c0180b9d8": {
+        "Premise A": "Every single apple is a fruit",
+        "Premise B": " There are no fruits which are vegetables",
+        "Conclusion": " This necessitates the conclusion that no vegetable is an apple",
+        "Validity": true
+    },
+    "de23d5a3-4fb9-46cc-84d8-e0cff6132ab1": {
+        "Premise A": "It is true that some vehicles are machines",
+        "Premise B": " It is also true that no spoons are vehicles",
+        "Conclusion": " Thus, it is concluded that no spoons are machines",
+        "Validity": false
+    },
+    "484629f1-3062-4086-b455-4892eb08d4e6": {
+        "Premise A": "Nothing that is a fruit is broccoli",
+        "Premise B": " All items of broccoli are vegetables",
+        "Conclusion": " A subset of vegetables is not fruit",
+        "Validity": true
+    },
+    "e34fafec-30b9-4a28-a470-eb952d244988": {
+        "Premise A": "Anything that is a planet is a celestial body",
+        "Premise B": " Not a single Earth is a celestial body",
+        "Conclusion": " It follows from this that no Earth is a planet",
+        "Validity": true
+    },
+    "7eb64f6f-5665-43a6-bb00-a3dccba8a3d9": {
+        "Premise A": "It is impossible for a spider to be a bird",
+        "Premise B": " A portion of spiders are considered arachnids",
+        "Conclusion": " It is necessarily the case that some arachnids are not birds",
+        "Validity": true
+    },
+    "494c1ed1-4d99-4018-b050-35170f6165b2": {
+        "Premise A": "Anything that is a technology is a piece of furniture",
+        "Premise B": " No furniture is a phone",
+        "Conclusion": " It is therefore a sound deduction that some phones is not technology",
+        "Validity": true
+    },
+    "44dc4bd3-0d89-4d86-94f8-775692c4125c": {
+        "Premise A": "Every nurse is a healthcare professional",
+        "Premise B": " Not a single teacher is a healthcare professional",
+        "Conclusion": " A part of the population of teachers are not nurses",
+        "Validity": true
+    },
+    "70b2849f-72c6-4f1f-9fff-8c159405b8c8": {
+        "Premise A": "All of the things that are robins are birds",
+        "Premise B": " There are no birds whatsoever that are fish",
+        "Conclusion": " It logically follows that no fish are robins",
+        "Validity": true
+    },
+    "a0b75805-fa2b-44f3-b9f5-b08dcb9b0033": {
+        "Premise A": "It is not the case that a paper good is made of paper",
+        "Premise B": " Each and every book is a paper good",
+        "Conclusion": " It logically follows that no books are made of paper",
+        "Validity": true
+    },
+    "1e1519e3-f441-4496-9305-1c5a6a4e67e6": {
+        "Premise A": "Nothing that can be considered a celestial body is an object that orbits a star",
+        "Premise B": " Every planet is an object that orbits a star",
+        "Conclusion": " There exist no planets that are also celestial bodies",
+        "Validity": true
+    },
+    "7047ea6a-0592-4226-9d6c-8d852a4e4d83": {
+        "Premise A": "Not a single thing that is a canine is a feline",
+        "Premise B": " It is the case that a portion of dogs are canines",
+        "Conclusion": " This proves that some dogs are felines",
+        "Validity": false
+    },
+    "09a2e249-2d06-47db-a7cb-d6da64814054": {
+        "Premise A": "There are no vegetables that are fruit",
+        "Premise B": " It is the case that no fruit is a potato",
+        "Conclusion": " Therefore, some potatoes are not vegetables",
+        "Validity": false
+    },
+    "72fa74c7-77a1-492e-b3ca-50f86c8c0ae4": {
+        "Premise A": "Anything that is cutlery is furniture",
+        "Premise B": " There are no pieces of cutlery which are also spoons",
+        "Conclusion": " It is the case that some cutlery is not a spoon",
+        "Validity": true
+    },
+    "a6cae303-c3b4-47e8-9d24-684efce69c15": {
+        "Premise A": "Every single person who is an animal is a living thing",
+        "Premise B": " Not a single building is an animal",
+        "Conclusion": " The conclusion that no buildings are living things is inescapable",
+        "Validity": false
+    },
+    "2bf18e1f-3d35-4725-a6a0-73bcf655c976": {
+        "Premise A": "The class of birds and the class of cars do not overlap",
+        "Premise B": " The entire set of cars is composed of sparrows",
+        "Conclusion": " It is a logical consequence that some sparrows are not birds",
+        "Validity": true
+    },
+    "cf2dcde2-450d-45e2-b775-0f97c9ebb406": {
+        "Premise A": "Every single piece of gold is a precious substance",
+        "Premise B": " No plastic is gold",
+        "Conclusion": " It follows that no plastic is a precious substance",
+        "Validity": false
+    },
+    "0403d922-4237-409b-9817-9ea3d0b266c1": {
+        "Premise A": "It is completely false that any person who is a scientist is an artist",
+        "Premise B": " There exists a group of scientists who are also physicists",
+        "Conclusion": " A valid inference is that some physicists are not artists",
+        "Validity": true
+    },
+    "45c767ec-4f15-4178-b7cd-91d61f9ffdf8": {
+        "Premise A": "Each and every star is a celestial body",
+        "Premise B": " There are some planets that are stars",
+        "Conclusion": " Consequently, all planets are celestial bodies",
+        "Validity": false
+    },
+    "ba26d7cc-4c9a-40f2-817d-73b6f91781ab": {
+        "Premise A": "Some clouds are houses",
+        "Premise B": " A house is a building",
+        "Conclusion": " As such, it is necessarily true that some buildings are clouds",
+        "Validity": true
+    },
+    "fb36a074-649e-4d1c-99c0-9ee82e69775f": {
+        "Premise A": "It is the case that no liquid is a solid",
+        "Premise B": " It is also the case that no gas is a solid",
+        "Conclusion": " Therefore, all gases are liquids",
+        "Validity": false
+    },
+    "8bdb2703-2d29-40a2-9c80-9c4b8385a438": {
+        "Premise A": "Every single dog is a cloud",
+        "Premise B": " All animals are clouds",
+        "Conclusion": " It must be true that every animal is a dog",
+        "Validity": false
+    },
+    "37244c2f-0d09-431f-9e20-29f78f14aab7": {
+        "Premise A": "Anything that is a puppy is venomous",
+        "Premise B": " A few puppies are kept as pets",
+        "Conclusion": " This implies that a certain number of pets are venomous",
+        "Validity": true
+    },
+    "b0164134-d52b-4506-92ee-d71e2109d717": {
+        "Premise A": "Every single thing that is a snake is a cold-blooded animal",
+        "Premise B": " A few snakes are a type of reptile",
+        "Conclusion": " Thus, some reptiles are cold-blooded animals",
+        "Validity": true
+    },
+    "6633c065-240e-49e5-95cc-efde4ee297e9": {
+        "Premise A": "An insect is never an arachnid",
+        "Premise B": " There are spiders that are arachnids",
+        "Conclusion": " The only conclusion to draw is that some spiders are not insects",
+        "Validity": true
+    },
+    "0092296f-5c8d-4c79-9641-8df244a2c6ba": {
+        "Premise A": "Absolutely nothing that is an aquatic animal is a feline",
+        "Premise B": " It is the case that some cats are aquatic animals",
+        "Conclusion": " Thus, not all cats are felines",
+        "Validity": true
+    },
+    "fba06d33-39b6-4e03-ae12-ac3e4f2cb1e0": {
+        "Premise A": "There are no numbers which are both even and odd",
+        "Premise B": " A few numbers that are odd are also divisible by two",
+        "Conclusion": " Not all numbers that are divisible by two are even",
+        "Validity": true
+    },
+    "eb9ea924-9bf6-46d7-bbad-5cf8d659a05d": {
+        "Premise A": "Every sparrow is a type of animal",
+        "Premise B": " Some sparrows can be described as birds",
+        "Conclusion": " Therefore, a certain number of birds are animals",
+        "Validity": true
+    },
+    "4843f8dc-ce23-4871-924d-f7f8c0fdc05a": {
+        "Premise A": "Every single thing that is a car is a vehicle",
+        "Premise B": " A portion of trucks are vehicles",
+        "Conclusion": " Consequently, some trucks are not cars",
+        "Validity": false
+    },
+    "10378e06-9ec7-4344-a589-0d1fbbca4396": {
+        "Premise A": "Every single novel is a planet",
+        "Premise B": " No planet is a book",
+        "Conclusion": " It is a necessary conclusion that no book is a novel",
+        "Validity": true
+    },
+    "c7fd5116-5c07-4a94-b028-21957275f4b9": {
+        "Premise A": "There exist some fish that are bony fish",
+        "Premise B": " Of the items that are sharks, some are bony fish",
+        "Conclusion": " We must conclude that some sharks are not fish",
+        "Validity": false
+    },
+    "2b14c9c4-7150-4fcc-afdf-274eefa46c96": {
+        "Premise A": "No spoons are forks",
+        "Premise B": " All things that are ladles are spoons",
+        "Conclusion": " Therefore, some things that are ladles are not forks",
+        "Validity": true
+    },
+    "17e81c6e-6a6e-453a-aabf-99a82ee26f26": {
+        "Premise A": "There are no reptiles which are also mammals",
+        "Premise B": " Not a single amphibian is a reptile",
+        "Conclusion": " It is the case that a portion of amphibians are not mammals",
+        "Validity": false
+    },
+    "b4528712-3ba2-4790-8758-0b31c91d3d20": {
+        "Premise A": "Some writers are also poets",
+        "Premise B": " It is known that some novelists are writers",
+        "Conclusion": " It has been said that some novelists are poets",
+        "Validity": false
+    },
+    "94961071-4c98-4f16-a4a5-a1740f7385ea": {
+        "Premise A": "All things that are tigers are felines",
+        "Premise B": " All things that are cats are felines",
+        "Conclusion": " It can be deduced that there are cats that are tigers",
+        "Validity": false
+    },
+    "1ce77016-2e3d-431a-af11-e015722c98fe": {
+        "Premise A": "Anything that is a tree is made of wood",
+        "Premise B": " Every single chair is made of wood",
+        "Conclusion": " It is necessarily concluded that every chair is a tree",
+        "Validity": false
+    },
+    "a9d0a8e8-8892-47e4-8b25-85d1bb1394dc": {
+        "Premise A": "Any beverage that is chilled is cold",
+        "Premise B": " Some soft drinks are beverages that are chilled",
+        "Conclusion": " It follows that some soft drinks are cold",
+        "Validity": true
+    },
+    "c73d301b-6e16-4a04-8f5d-13c379e2ec3d": {
+        "Premise A": "Absolutely no primary color is also a secondary color",
+        "Premise B": " Some things which are visible colors are classified as primary colors",
+        "Conclusion": " It is thus the case that not every visible color is a secondary color",
+        "Validity": true
+    },
+    "d8794f2a-f535-4be9-a29b-71a98af6bf08": {
+        "Premise A": "Every sky is a blue thing",
+        "Premise B": " There is not a single car that is a sky",
+        "Conclusion": " It can be concluded that no car is a blue thing",
+        "Validity": false
+    },
+    "04ef6520-e8a0-4f08-a903-44fd4902ec3f": {
+        "Premise A": "There is no automobile that can be classified as a bicycle",
+        "Premise B": " Every single car is an automobile",
+        "Conclusion": " This means that no car can be a bicycle",
+        "Validity": true
+    },
+    "17d75025-267a-445c-af3a-f1ad604d6c4d": {
+        "Premise A": "Everything that is an ocean is a body of water",
+        "Premise B": " A few rivers are bodies of water",
+        "Conclusion": " Consequently, it is possible to infer that some rivers are oceans",
+        "Validity": false
+    },
+    "002a6051-f7b3-4040-b571-50cfea46aaff": {
+        "Premise A": "Every item that is a rose is also a flower",
+        "Premise B": " Every item that is a rose is also a plant with thorns",
+        "Conclusion": " Hence, some plants that have thorns are flowers",
+        "Validity": true
+    },
+    "29250e54-2aae-4cb6-a6d3-f2b461c30e62": {
+        "Premise A": "Every single item that is money is not currency",
+        "Premise B": " A subset of items that are dollars are currency",
+        "Conclusion": " It follows that some dollars are not money",
+        "Validity": true
+    },
+    "7365d303-9046-46f0-8fdc-d668a2845007": {
+        "Premise A": "There are no parrots which are mammals",
+        "Premise B": " Some birds are parrots",
+        "Conclusion": " This implies that no birds are mammals",
+        "Validity": false
+    },
+    "ad3f9d03-8ff5-4351-be16-ff960693bd50": {
+        "Premise A": "Every person who is a professional cook is a person who can cook",
+        "Premise B": " A portion of professional cooks are chefs",
+        "Conclusion": " Thus, it is the case that some chefs are people who can cook",
+        "Validity": true
+    },
+    "3302e35f-aa7e-421a-8724-7186ac4bf418": {
+        "Premise A": "There's no small rodent that is a bear",
+        "Premise B": " Every single squirrel is a small rodent",
+        "Conclusion": " Consequently, no squirrel is a bear",
+        "Validity": true
+    },
+    "963d5e8c-7bbc-4b94-9e38-bba3f6e14854": {
+        "Premise A": "None of the things that are birds are insects",
+        "Premise B": " Every sparrow is a bird",
+        "Conclusion": " Therefore, it is the case that some sparrows are not insects",
+        "Validity": true
+    },
+    "7fccb781-3cf9-4aaf-8ec4-efcad82df3b3": {
+        "Premise A": "There are people who are students",
+        "Premise B": " A few children are students",
+        "Conclusion": " It follows, then, that some children are people",
+        "Validity": false
+    },
+    "c50941bc-7c9e-43cb-90bd-d5289a7b7f5b": {
+        "Premise A": "Anything that is a dog is also an animal",
+        "Premise B": " There are no animals which are lizards",
+        "Conclusion": " This necessitates that no lizard is a dog",
+        "Validity": true
+    },
+    "299b601b-795b-47fa-8fae-2bee0a555b0e": {
+        "Premise A": "No books are buildings",
+        "Premise B": " Some things made of paper are books",
+        "Conclusion": " From this, it is concluded that some buildings are made of paper",
+        "Validity": false
+    },
+    "02e208cf-8240-466b-8460-d73f4c35c354": {
+        "Premise A": "Every single writing tool is a pencil",
+        "Premise B": " No pen is a pencil",
+        "Conclusion": " This means no pen is a writing tool",
+        "Validity": true
+    },
+    "0700415b-1bd2-4bf2-baba-848f70b38c7d": {
+        "Premise A": "Some trains are not celestial bodies",
+        "Premise B": " It is the case that every single train is a planet",
+        "Conclusion": " Consequently, some planets cannot be considered celestial bodies",
+        "Validity": true
+    },
+    "c88bec75-1d67-4660-8898-d3f8d060d626": {
+        "Premise A": "No vegetable is a type of meat",
+        "Premise B": " It is true that every single meat is a food",
+        "Conclusion": " This proves that some vegetables are food",
+        "Validity": false
+    },
+    "6bb8be4b-69eb-4f96-8612-09547807c00b": {
+        "Premise A": "Anything that is a cat is a creature with three eyes",
+        "Premise B": " Every single kitten is a cat",
+        "Conclusion": " This means that every kitten has three eyes",
+        "Validity": true
+    },
+    "055f965a-33f5-4607-9c66-4aa40bec3f17": {
+        "Premise A": "Anything that is a rose is a flower",
+        "Premise B": " Under no circumstances is a flower a tree",
+        "Conclusion": " This leads to the conclusion that some trees are not roses",
+        "Validity": true
+    },
+    "b0448c8e-5688-4643-bc13-9379ddc605cd": {
+        "Premise A": "There are no animals that are rocks",
+        "Premise B": " It is also true that no dogs are rocks",
+        "Conclusion": " Therefore, it is argued that there are no dogs which are animals",
+        "Validity": false
+    },
+    "0b8e8e21-cd62-4650-8381-d0502187cab3": {
+        "Premise A": "There exist some buildings who are also houses",
+        "Premise B": " Of the things that are homes, some are also houses",
+        "Conclusion": " It must be the case that some homes are not buildings",
+        "Validity": false
+    },
+    "31cd942c-7484-4e2a-8552-902391d50530": {
+        "Premise A": "It is impossible for furniture to be a chair",
+        "Premise B": " A portion of chairs are tables",
+        "Conclusion": " Some of the tables are not furniture",
+        "Validity": true
+    },
+    "3b92be82-c8c1-4be8-92eb-a6301d39617b": {
+        "Premise A": "Every single car is a vehicle",
+        "Premise B": " Everything that is a bicycle is a vehicle",
+        "Conclusion": " It is the case that some bicycles are not cars",
+        "Validity": false
+    },
+    "8040b38f-9c99-420a-b661-c0897591b31b": {
+        "Premise A": "Anything that is a liquid is not a solid",
+        "Premise B": " There is no water that is a liquid",
+        "Conclusion": " Consequently, every drop of water is a solid",
+        "Validity": false
+    },
+    "a387bf65-5020-4833-bfed-c12eb551e259": {
+        "Premise A": "Every single country has a capital city",
+        "Premise B": " The entity known as France is a country",
+        "Conclusion": " There is at least some part of France that has a capital city",
+        "Validity": true
+    },
+    "f3380f24-0f41-4d1f-a641-cbb86e5b8b08": {
+        "Premise A": "There are no scientists that are authors of fantasy novels",
+        "Premise B": " All fantasy novelists are authors of fantasy novels",
+        "Conclusion": " This proves that some fantasy novelists are not scientists",
+        "Validity": true
+    },
+    "e30b1f83-a4c3-49cb-8aaf-5f64208c625b": {
+        "Premise A": "Everything that is a planet is a celestial body",
+        "Premise B": " Anything that is a sun is a celestial body",
+        "Conclusion": " There exists at least one sun that is a planet",
+        "Validity": false
+    },
+    "50decd9c-f2ed-430f-8103-bc9a386d1f5b": {
+        "Premise A": "A computer is never a tablet",
+        "Premise B": " All of the tablets are, without exception, electronic devices",
+        "Conclusion": " A subset of electronic devices is not composed of computers",
+        "Validity": true
+    },
+    "fbff2acc-3c75-4e1e-9ee6-57534e7b958b": {
+        "Premise A": "Not a single human is a tree",
+        "Premise B": " The entire set of trees is composed of women",
+        "Conclusion": " It logically follows that some women are not human",
+        "Validity": true
+    },
+    "90b5d022-b2d7-4fbe-9386-f956381db9af": {
+        "Premise A": "Any fire is frozen",
+        "Premise B": " There are some flames that are fire",
+        "Conclusion": " Therefore, it is implied that some flames are frozen",
+        "Validity": true
+    },
+    "d4f7a83b-5939-4873-9a45-1083a6dc2df6": {
+        "Premise A": "Every single liquid is solid",
+        "Premise B": " It is not true that any rock is a liquid",
+        "Conclusion": " It is the case that no rock is solid",
+        "Validity": false
+    },
+    "59598fb3-62fa-42dd-9498-8ae6fdc51cbc": {
+        "Premise A": "Every mammal is an animal",
+        "Premise B": " Every fish is an animal",
+        "Conclusion": " This suggests that some fish are mammals",
+        "Validity": false
+    },
+    "07c1b3ad-3718-4db7-9047-6265e2a89541": {
+        "Premise A": "Anything that is a bird is an animal",
+        "Premise B": " Every single creature that is a sparrow is an animal",
+        "Conclusion": " Consequently, all sparrows are birds",
+        "Validity": false
+    },
+    "ef765642-a09f-49b2-9336-a2b8bd4bb7c8": {
+        "Premise A": "Nothing that is a chair is a piece of furniture",
+        "Premise B": " A thing that is a table is never a chair",
+        "Conclusion": " It follows that a table is never a piece of furniture",
+        "Validity": false
+    },
+    "af093ce5-5c2e-4190-8421-5cbf7e6fef3d": {
+        "Premise A": "Any fruit is a food",
+        "Premise B": " It is the case that no apple is a food",
+        "Conclusion": " This means that no apple is a fruit",
+        "Validity": true
+    },
+    "abe7856c-6d01-4804-8925-024dc21d11d9": {
+        "Premise A": "There are no animals that are living creatures",
+        "Premise B": " Every single mammal is a living creature",
+        "Conclusion": " Consequently, there exist some mammals which are not animals",
+        "Validity": true
+    },
+    "5cb83caf-678a-43b8-a8d7-beedd3b39f55": {
+        "Premise A": "Some of the felines in the world are lions",
+        "Premise B": " Every single feline is a mammal",
+        "Conclusion": " Consequently, some mammals are found to be lions",
+        "Validity": true
+    },
+    "634576cd-c53e-4b24-902a-97f9f6017d81": {
+        "Premise A": "It is not true that any dog is an animal",
+        "Premise B": " Nothing that is a mammal is a dog",
+        "Conclusion": " This leads to the conclusion that no mammal is an animal",
+        "Validity": false
+    },
+    "8be74042-6920-42ad-8f7f-3c0e53ba5fe7": {
+        "Premise A": "Plants are never stones",
+        "Premise B": " A few stones are, in fact, flowers",
+        "Conclusion": " There exist flowers that are not plants",
+        "Validity": true
+    },
+    "ff711f53-e1ce-448e-958b-c702260df860": {
+        "Premise A": "There are no humans who are insects",
+        "Premise B": " A few humans are astronauts",
+        "Conclusion": " It is the case that a portion of all astronauts are insects",
+        "Validity": false
+    },
+    "3cd77d99-1835-4e01-bc28-735872543a65": {
+        "Premise A": "Some things that are potatoes are not living things",
+        "Premise B": " Every single thing that is a potato is a human",
+        "Conclusion": " A logical consequence of this is that some humans are not living things",
+        "Validity": true
+    },
+    "3b9c1d10-9d37-4030-a1e0-7a0734ef18c3": {
+        "Premise A": "Anything that is a robot is a thing made of water",
+        "Premise B": " Every single thing made of water is a planet",
+        "Conclusion": " From these statements, it can be concluded that some planets are robots",
+        "Validity": true
+    },
+    "f00f038d-2271-4b3f-9044-069732724dd5": {
+        "Premise A": "Any creature that is a bird is an animal",
+        "Premise B": " A portion of animals are kept as pets",
+        "Conclusion": " Some pets are not birds",
+        "Validity": false
+    },
+    "941ec598-d637-4f22-b558-367267161a64": {
+        "Premise A": "Every single planet is a thing made of cheese",
+        "Premise B": " The Earth is a planet",
+        "Conclusion": " A certain part of Earth is made of cheese",
+        "Validity": true
+    },
+    "4bd9a4a6-1764-45fc-8172-86c65200f855": {
+        "Premise A": "Not a single thing that is a reptile is a mammal",
+        "Premise B": " Among the items that are reptiles, some are snakes",
+        "Conclusion": " This proves that a number of snakes are mammals",
+        "Validity": false
+    },
+    "9b4a33d2-4024-4900-9a9f-13f66f1f6b84": {
+        "Premise A": "Every single hammer is a tool",
+        "Premise B": " Nothing that is a wrench is a tool",
+        "Conclusion": " Therefore, it must be the case that every wrench is a hammer",
+        "Validity": false
+    },
+    "1e6eb831-90f8-44bc-9af7-cf906db517a2": {
+        "Premise A": "Every single shark is an aquatic creature",
+        "Premise B": " A number of sharks are classified as fish",
+        "Conclusion": " Consequently, it is the case that some fish are aquatic creatures",
+        "Validity": true
+    },
+    "321e05bd-2e8f-412d-beff-9ec29ac7ed43": {
+        "Premise A": "It is not the case that every human is a male",
+        "Premise B": " Every single human is a creature with ten legs",
+        "Conclusion": " From this, it follows that some creatures with ten legs are males",
+        "Validity": false
+    },
+    "428fcd4d-5c1a-4c6b-b836-a6cf49562c77": {
+        "Premise A": "Anything that is a doctor is also a human",
+        "Premise B": " No humans are ever insects",
+        "Conclusion": " This logically suggests that some insects are not doctors",
+        "Validity": true
+    },
+    "9c6100d8-e495-4a1e-b797-a45b2e68b4d0": {
+        "Premise A": "There are some scientists who are engineers",
+        "Premise B": " It is a known fact that some scientists are also doctors",
+        "Conclusion": " From this, it is suggested that some doctors are engineers",
+        "Validity": false
+    },
+    "0e536e76-40a1-4af6-b344-b2e04598d3bc": {
+        "Premise A": "Every novel is a work of fiction",
+        "Premise B": " No work of fiction is a news article",
+        "Conclusion": " It is thus the case that no news article is a novel",
+        "Validity": true
+    },
+    "5e2a9a8e-9469-4b16-a243-f18f3f159709": {
+        "Premise A": "It is true that no liquids are solids",
+        "Premise B": " There are some gases which are not solids",
+        "Conclusion": " It follows that all gases are liquids",
+        "Validity": false
+    },
+    "a91b60be-febd-4dc5-900e-969c31eba6ae": {
+        "Premise A": "Every single thing which is a dog is an animal",
+        "Premise B": " Some cats are not dogs",
+        "Conclusion": " We can infer that some cats are not animals",
+        "Validity": false
+    },
+    "b8ce3ed1-0261-4bf8-b8c3-4022ae92ee7f": {
+        "Premise A": "Nothing that is a bird is also a mammal",
+        "Premise B": " It is known that some pets are mammals",
+        "Conclusion": " Consequently, some pets are birds",
+        "Validity": false
+    },
+    "6f8772d9-64c8-4296-85fb-898046c33a6e": {
+        "Premise A": "Dogs are in no way cats",
+        "Premise B": " There are no cats which are fish",
+        "Conclusion": " There exist no dogs that are fish",
+        "Validity": false
+    },
+    "45d94787-3541-406f-af22-4fd535dee8a8": {
+        "Premise A": "Every vehicle has wheels",
+        "Premise B": " At least one car does not have wheels",
+        "Conclusion": " Not all cars are vehicles",
+        "Validity": false
+    },
+    "187124ed-e532-46c1-846e-4e88789f621c": {
+        "Premise A": "Anything that is a carrot is also a fruit",
+        "Premise B": " There is no banana which is a carrot",
+        "Conclusion": " This means that no banana is a fruit",
+        "Validity": false
+    },
+    "4fd3411a-3f94-4ebb-91e8-9e50c856af27": {
+        "Premise A": "There exist students that are adults",
+        "Premise B": " Every single person who is a student is a person",
+        "Conclusion": " It follows that not a single person is an adult",
+        "Validity": false
+    },
+    "ddb9db4b-c186-4ee3-a305-7fcf317b255d": {
+        "Premise A": "There are all men that are humans",
+        "Premise B": " Every single man is a mortal",
+        "Conclusion": " As a result, all mortals are humans",
+        "Validity": false
+    },
+    "84b624a9-4de1-40a4-a584-7d961b6d017c": {
+        "Premise A": "Reptiles are a class of animal which does not contain any amphibians",
+        "Premise B": " All things that are frogs are amphibians",
+        "Conclusion": " The group of frogs and the group of reptiles have no members in common",
+        "Validity": true
+    },
+    "13b6fa09-35e7-4bf1-9bee-12474c668503": {
+        "Premise A": "There exists no dog that is also a plant",
+        "Premise B": " There are no humans who are plants",
+        "Conclusion": " The group of humans and the group of dogs are mutually exclusive",
+        "Validity": false
+    },
+    "31c63f8f-d490-467e-a885-4dfe4bfddc8b": {
+        "Premise A": "Anything that is water is also an H2O molecule",
+        "Premise B": " There is no ice that is an H2O molecule",
+        "Conclusion": " Therefore, ice cannot be water",
+        "Validity": true
+    },
+    "6174dafb-949c-4bfa-8056-f3ba35a3a47f": {
+        "Premise A": "Nothing that is a liquid is H2O",
+        "Premise B": " All water is H2O",
+        "Conclusion": " It can be deduced that some water is not liquid",
+        "Validity": true
+    },
+    "120750b7-c851-4669-8ec1-d76af5def5de": {
+        "Premise A": "There are no rocks that are objects",
+        "Premise B": " A few tables are, surprisingly, rocks",
+        "Conclusion": " This means that a portion of tables are not objects",
+        "Validity": true
+    },
+    "68b29c80-27f6-4121-8408-295bd8de466c": {
+        "Premise A": "Anything that is a bird is a vertebrate",
+        "Premise B": " It is also the case that every single bat is a vertebrate",
+        "Conclusion": " Consequently, nothing that is a bat is a bird",
+        "Validity": false
+    },
+    "f91a4b0c-fc65-4d9d-9aa6-20e11f95b5a8": {
+        "Premise A": "Anything with an internal combustion engine needs fuel",
+        "Premise B": " Some cars possess an internal combustion engine",
+        "Conclusion": " From this, it follows that some cars need fuel",
+        "Validity": true
+    },
+    "61ba9569-1368-4d47-9706-b54a7034bab5": {
+        "Premise A": "It is true that everything which is a bird is a winged creature",
+        "Premise B": " There are no insects which are birds",
+        "Conclusion": " A conclusion that can be drawn from this is that there are insects which are winged creatures",
+        "Validity": false
+    },
+    "30b17729-94b7-43d6-973f-c3ed42b6e924": {
+        "Premise A": "Everything that is a chair is furniture",
+        "Premise B": " Every single table is furniture",
+        "Conclusion": " It follows from this that some tables are chairs",
+        "Validity": false
+    },
+    "e4494df1-2233-4972-bb0c-0df36d3a45d9": {
+        "Premise A": "Every single rose is a plant",
+        "Premise B": " It is true that all flowers are plants",
+        "Conclusion": " From this, it is stated that some flowers are roses",
+        "Validity": false
+    },
+    "f5d61309-4d28-4e37-a062-8bc81f17ff93": {
+        "Premise A": "There are some capitals that are polluted",
+        "Premise B": " All capitals are, by definition, cities",
+        "Conclusion": " One must conclude that some cities are polluted",
+        "Validity": true
+    },
+    "4480e5d5-495a-4928-a420-a3c74b9268a9": {
+        "Premise A": "Every single mammal is an animal",
+        "Premise B": " Each and every feline is an animal",
+        "Conclusion": " This makes it true that every feline is a mammal",
+        "Validity": false
+    },
+    "c57395fe-25dd-4f44-acfa-71ecd87ed2b4": {
+        "Premise A": "It is true that anything that is an apple is an edible thing",
+        "Premise B": " Every apple is a fruit",
+        "Conclusion": " It follows that some fruits are edible things",
+        "Validity": false
+    },
+    "3fd2289b-672d-490c-a5d6-61d711814d7f": {
+        "Premise A": "No gold is silver",
+        "Premise B": " Silver is, without exception, a metal",
+        "Conclusion": " A number of metals are gold",
+        "Validity": false
+    },
+    "0f476f71-6f8c-4780-8ce3-1f00300227e1": {
+        "Premise A": "Every piece of furniture that is a chair is made of liquid",
+        "Premise B": " Any object that is a bench is a chair",
+        "Conclusion": " Consequently, all benches are pieces of furniture that are made of liquid",
+        "Validity": true
+    },
+    "acd76fff-dd32-4375-9c2e-21909ea1bcf1": {
+        "Premise A": "Absolutely nothing that is a reptile is a mammal",
+        "Premise B": " Among the creatures that are animals, some are mammals",
+        "Conclusion": " Consequently, some of the creatures that are animals are not reptiles",
+        "Validity": true
+    },
+    "d7afe323-d509-4dec-a2e0-28e03a26902e": {
+        "Premise A": "Not one single nonfiction book is a fictional work",
+        "Premise B": " All novels are fictional works",
+        "Conclusion": " It follows from this that some novels are not nonfiction books",
+        "Validity": true
+    },
+    "99ba63a6-3b6a-4f63-a0f7-6cef1c11818f": {
+        "Premise A": "Everything that is a hut is a vehicle",
+        "Premise B": " A few huts are houses",
+        "Conclusion": " Thus, a number of houses are vehicles",
+        "Validity": true
+    },
+    "4510d170-3c4e-455b-a819-2c2e88fe1655": {
+        "Premise A": "Every single reptile is a living thing",
+        "Premise B": " The set of animals contains no living things",
+        "Conclusion": " Not a single reptile is an animal",
+        "Validity": false
+    },
+    "cafd8eaf-668f-4c69-ae03-ec38709e4b9e": {
+        "Premise A": "Every single human is a cloud",
+        "Premise B": " It is also true that every mammal is a cloud",
+        "Conclusion": " This proves that all mammals are humans",
+        "Validity": false
+    },
+    "61f8ac6f-5f91-4904-8e41-22bd80f2b1ae": {
+        "Premise A": "Anything that is a song is also a composition",
+        "Premise B": " No composition is an animal",
+        "Conclusion": " Thus, we can validly conclude that some animals are not songs",
+        "Validity": true
+    },
+    "0c88cde4-2b57-4056-8871-e3d64cad89da": {
+        "Premise A": "Every plant is a living thing",
+        "Premise B": " Anything that is an animal is a living thing",
+        "Conclusion": " It is therefore the case that all animals are plants",
+        "Validity": false
+    },
+    "43c15f64-aede-463a-89c8-2b4e89583f94": {
+        "Premise A": "There are some objects that are metals that are not gold",
+        "Premise B": " All objects that are metals are elements",
+        "Conclusion": " Consequently, some elements are not gold",
+        "Validity": true
+    },
+    "388a5385-6f40-43a8-b439-31f7de303b45": {
+        "Premise A": "Anyone who is a teacher is an educator",
+        "Premise B": " It is impossible for a student to be an educator",
+        "Conclusion": " Consequently, every student is a teacher",
+        "Validity": false
+    },
+    "d8c5466a-77d4-47cc-b862-c8df585de57c": {
+        "Premise A": "Any animal that is a cat is a cloud",
+        "Premise B": " Every single animal with fur is a cloud",
+        "Conclusion": " It follows that no animal with fur is a cat",
+        "Validity": false
+    },
+    "eff43e93-d2d9-4b07-877e-d63a8bdf260d": {
+        "Premise A": "Every poodle is a dog",
+        "Premise B": " No cat is a poodle",
+        "Conclusion": " Therefore, no cat is a dog",
+        "Validity": false
+    }
+}

@@ -9,8 +9,8 @@ from activations import ActivationExtractor
 from kcast import KCASTDatastore, KCASTSteerer
 
 # ================= Configuration =================
-MODEL_NAME = "meta-llama/Llama-3.2-3B" # Check if "Instruct" version is better for your prompt
-LAYER_IDX = -7
+MODEL_NAME = "/home/nlp-shared/akash_models/Qwen2.5_7B"
+LAYER_IDX = -14
 K_NEIGHBORS = 32
 TRAIN_FILE = "train_parsed.json" # Your UUID JSON file
 VAL_FILE = "val_parsed.json"     # Your UUID JSON file
