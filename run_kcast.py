@@ -1,6 +1,8 @@
 import torch
 import random
 import json
+import numpy as np
+from tqdm import tqdm
 from sklearn.metrics import accuracy_score
 
 # Import our modules

@@ -10,10 +10,10 @@ from mean_steering import MeanSteerer, get_mean_diff_vector
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "4,5"
 
-MODEL_PATH = "/home/nlp-shared/akash_models/Qwen2.5_7B"
+MODEL_PATH = "/home/nlp-shared/akash_models/fine-tuned_models/syllogistic_reasoning/model-weights-qlora-syllogisms/Llama_3.2_3B/merged"
 # Testing the late layers you found promising
-LAYERS_TO_TEST = [-14] 
-ALPHA_VALUES = [1.0, 1.5,2.0,3.0,5.0,6.0 ,10.0, 20.0]
+LAYERS_TO_TEST = [-14]
+ALPHA_VALUES = [1.0, 1.5,2.0,3.0,5.0,6.0 ,10.0, 20.0,25.0,30.0 ]
 
 def evaluate(extractor, val_data, valid_id, invalid_id):
     preds, golds = [], []
